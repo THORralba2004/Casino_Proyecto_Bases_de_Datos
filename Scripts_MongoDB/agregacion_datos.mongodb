@@ -1,0 +1,339 @@
+use("Casino_Base_de_Datos");
+
+
+db.clientes.insertMany([
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012345"),
+        nombre: "Juan Pérez",
+        docId: "12345678",
+        fechaRegistro: ISODate("2024-01-15"),
+        telefono: "3001234567",
+        email: "juan.perez@email.com"
+    },
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012346"),
+        nombre: "María García",
+        docId: "87654321",
+        fechaRegistro: ISODate("2024-02-20"),
+        telefono: "3109876543",
+        email: "maria.garcia@email.com"
+    },
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012347"),
+        nombre: "Carlos Rodríguez",
+        docId: "11223344",
+        fechaRegistro: ISODate("2024-03-10"),
+        telefono: "3205556677",
+        email: "carlos.rodriguez@email.com"
+    },
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012348"),
+        nombre: "Ana Martínez",
+        docId: "55667788",
+        fechaRegistro: ISODate("2024-03-25"),
+        telefono: "3154443333",
+        email: "ana.martinez@email.com"
+    }
+]);
+
+db.empleados.insertMany([
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012349"),
+        nombre: "Ana López",
+        cargo: "Cajero",
+        salario: NumberDecimal("2500000.00"),
+        activo: "S"
+    },
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012350"),
+        nombre: "Pedro Martínez",
+        cargo: "Supervisor",
+        salario: NumberDecimal("3500000.00"),
+        activo: "S"
+    },
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012351"),
+        nombre: "Laura Sánchez",
+        cargo: "Gerente",
+        salario: NumberDecimal("5000000.00"),
+        activo: "S"
+    },
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012352"),
+        nombre: "Carlos Ruiz",
+        cargo: "Cajero",
+        salario: NumberDecimal("2400000.00"),
+        activo: "N"
+    }
+]);
+
+db.tiposJuego.insertMany([
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012353"),
+        nombre: "Tragamonedas"
+    },
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012354"),
+        nombre: "Póker"
+    },
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012355"),
+        nombre: "Ruleta"
+    },
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012356"),
+        nombre: "Blackjack"
+    }
+]);
+
+db.metodosPago.insertMany([
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012357"),
+        nombre: "Efectivo"
+    },
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012358"),
+        nombre: "Tarjeta Débito"
+    },
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012359"),
+        nombre: "Tarjeta Crédito"
+    },
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012360"),
+        nombre: "Transferencia"
+    }
+]);
+
+
+db.inventariosFicha.insertMany([
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012365"),
+        nombreBoveda: "Bóveda Principal",
+        saldo: 10000
+    },
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012366"),
+        nombreBoveda: "Caja Registradora 1",
+        saldo: 5000
+    },
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012367"),
+        nombreBoveda: "Caja Registradora 2",
+        saldo: 3000
+    }
+]);
+
+db.eventosJuego.insertMany([
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012368"),
+        tipoJuegoId: "661a1b2c3d4e5f6789012353", // Tragamonedas (String)
+        fechaAlta: ISODate("2024-04-01"),
+        estado: "Activo"
+    },
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012369"),
+        tipoJuegoId: "661a1b2c3d4e5f6789012354", // Póker (String)
+        fechaAlta: ISODate("2024-04-02"),
+        estado: "Activo"
+    },
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012370"),
+        tipoJuegoId: "661a1b2c3d4e5f6789012355", // Ruleta (String)
+        fechaAlta: ISODate("2024-04-03"),
+        estado: "Inactivo"
+    },
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012371"),
+        tipoJuegoId: "661a1b2c3d4e5f6789012356", // Blackjack (String)
+        fechaAlta: ISODate("2024-04-05"),
+        estado: "Activo"
+    }
+]);
+
+db.torneos.insertMany([
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012372"),
+        nombre: "Torneo de Póker Semanal",
+        fechaInicio: ISODate("2024-04-15"),
+        fechaFin: ISODate("2024-04-15"),
+        buyIn: NumberDecimal("50000.00"),
+        premio: NumberDecimal("1000000.00"),
+        eventoId: "661a1b2c3d4e5f6789012369" // Evento Póker (String)
+    },
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012373"),
+        nombre: "Torneo Blackjack VIP",
+        fechaInicio: ISODate("2024-04-20"),
+        fechaFin: ISODate("2024-04-20"),
+        buyIn: NumberDecimal("100000.00"),
+        premio: NumberDecimal("2000000.00"),
+        eventoId: "661a1b2c3d4e5f6789012371" // Evento Blackjack (String)
+    }
+]);
+
+db.maquinas.insertMany([
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012374"),
+        codigoSerie: "TM001-2024",
+        denominacion: NumberDecimal("100.00"),
+        eventoId: "661a1b2c3d4e5f6789012368" // Evento Tragamonedas (String)
+    },
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012375"),
+        codigoSerie: "TM002-2024",
+        denominacion: NumberDecimal("500.00"),
+        eventoId: "661a1b2c3d4e5f6789012368" // Evento Tragamonedas (String)
+    },
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012376"),
+        codigoSerie: "TM003-2024",
+        denominacion: NumberDecimal("1000.00"),
+        eventoId: "661a1b2c3d4e5f6789012368" // Evento Tragamonedas (String)
+    }
+]);
+
+db.mesas.insertMany([
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012377"),
+        nroMesa: 1,
+        limiteJugadores: 8,
+        eventoId: "661a1b2c3d4e5f6789012370" // Evento Ruleta (String)
+    },
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012378"),
+        nroMesa: 2,
+        limiteJugadores: 6,
+        eventoId: "661a1b2c3d4e5f6789012369" // Evento Póker (String)
+    },
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012379"),
+        nroMesa: 3,
+        limiteJugadores: 7,
+        eventoId: "661a1b2c3d4e5f6789012371" // Evento Blackjack (String)
+    }
+]);
+
+db.apuestas.insertMany([
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012380"),
+        clienteId: "661a1b2c3d4e5f6789012345", // Juan Pérez (String)
+        eventoId: "661a1b2c3d4e5f6789012368", // Evento Tragamonedas (String)
+        empleadoId: "661a1b2c3d4e5f6789012349", // Ana López (String)
+        fechaHora: ISODate("2024-04-10T14:30:00Z"),
+        monto: NumberDecimal("50000.00"),
+        resultado: "Ganada",
+        gananciaPerdida: NumberDecimal("75000.00"),
+        estado: "Finalizada"
+    },
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012381"),
+        clienteId: "661a1b2c3d4e5f6789012346", // María García (String)
+        eventoId: "661a1b2c3d4e5f6789012368", // Evento Tragamonedas (String)
+        empleadoId: "661a1b2c3d4e5f6789012349", // Ana López (String)
+        fechaHora: ISODate("2024-04-10T15:45:00Z"),
+        monto: NumberDecimal("25000.00"),
+        resultado: "Perdida",
+        gananciaPerdida: NumberDecimal("-25000.00"),
+        estado: "Finalizada"
+    },
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012382"),
+        clienteId: "661a1b2c3d4e5f6789012347", // Carlos Rodríguez (String)
+        eventoId: "661a1b2c3d4e5f6789012369", // Evento Póker (String)
+        empleadoId: "661a1b2c3d4e5f6789012350", // Pedro Martínez (String)
+        fechaHora: ISODate("2024-04-11T16:20:00Z"),
+        monto: NumberDecimal("100000.00"),
+        resultado: "Pendiente",
+        gananciaPerdida: NumberDecimal("0.00"),
+        estado: "En curso"
+    }
+]);
+
+db.transacciones.insertMany([
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012383"),
+        empleadoId: "661a1b2c3d4e5f6789012349", // Ana López (String)
+        metodoPagoId: "661a1b2c3d4e5f6789012357", // Efectivo (String)
+        clienteId: "661a1b2c3d4e5f6789012345", // Juan Pérez (String)
+        fechaHora: ISODate("2024-04-10T14:25:00Z"),
+        monto: NumberDecimal("50000.00"),
+        tipo: "Depósito",
+        observacion: "Compra de fichas para apuestas"
+    },
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012384"),
+        empleadoId: "661a1b2c3d4e5f6789012349", // Ana López (String)
+        metodoPagoId: "661a1b2c3d4e5f6789012358", // Tarjeta Débito (String)
+        clienteId: "661a1b2c3d4e5f6789012346", // María García (String)
+        fechaHora: ISODate("2024-04-10T15:40:00Z"),
+        monto: NumberDecimal("100000.00"),
+        tipo: "Depósito",
+        observacion: "Compra inicial de fichas"
+    },
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012385"),
+        empleadoId: "661a1b2c3d4e5f6789012349", // Ana López (String)
+        metodoPagoId: "661a1b2c3d4e5f6789012357", // Efectivo (String)
+        clienteId: "661a1b2c3d4e5f6789012345", // Juan Pérez (String)
+        fechaHora: ISODate("2024-04-10T17:30:00Z"),
+        monto: NumberDecimal("75000.00"),
+        tipo: "Retiro",
+        observacion: "Retiro de ganancias"
+    }
+]);
+
+db.movimientosFicha.insertMany([
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012386"),
+        inventarioId: "661a1b2c3d4e5f6789012365", // Bóveda Principal (String)
+        empleadoId: "661a1b2c3d4e5f6789012349", // Ana López (String)
+        fechaHora: ISODate("2024-04-10T14:20:00Z"),
+        cantidad: 500,
+        tipoMov: "Salida",
+        observacion: "Entrega a caja registradora 1"
+    },
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012387"),
+        inventarioId: "661a1b2c3d4e5f6789012366", // Caja Registradora 1 (String)
+        empleadoId: "661a1b2c3d4e5f6789012349", // Ana López (String)
+        fechaHora: ISODate("2024-04-10T18:00:00Z"),
+        cantidad: 300,
+        tipoMov: "Entrada",
+        observacion: "Devolución a bóveda principal"
+    },
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012388"),
+        inventarioId: "661a1b2c3d4e5f6789012365", // Bóveda Principal (String)
+        empleadoId: "661a1b2c3d4e5f6789012350", // Pedro Martínez (String)
+        fechaHora: ISODate("2024-04-11T09:00:00Z"),
+        cantidad: 200,
+        tipoMov: "Ajuste",
+        observacion: "Ajuste por inventario"
+    }
+]);
+
+
+db.inscripcionesTorneo.insertMany([
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012392"),
+        eventoId: "661a1b2c3d4e5f6789012369", // Evento Póker (String)
+        clienteId: "661a1b2c3d4e5f6789012345", // Juan Pérez (String)
+        fechaInscripcion: ISODate("2024-04-12"),
+        feePagado: NumberDecimal("50000.00")
+    },
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012393"),
+        eventoId: "661a1b2c3d4e5f6789012369", // Evento Póker (String)
+        clienteId: "661a1b2c3d4e5f6789012346", // María García (String)
+        fechaInscripcion: ISODate("2024-04-13"),
+        feePagado: NumberDecimal("50000.00")
+    },
+    {
+        _id: ObjectId("661a1b2c3d4e5f6789012394"),
+        eventoId: "661a1b2c3d4e5f6789012371", // Evento Blackjack (String)
+        clienteId: "661a1b2c3d4e5f6789012347", // Carlos Rodríguez (String)
+        fechaInscripcion: ISODate("2024-04-14"),
+        feePagado: NumberDecimal("100000.00")
+    }
+]);

@@ -1,0 +1,14 @@
+use ("Casino_Base_de_Datos");
+
+db.createCollection("clientes");
+db.createCollection("empleados");
+db.createCollection("eventosJuego");
+db.createCollection("apuestas");
+db.createCollection("transacciones");
+db.createCollection("metodosPago");
+db.createCollection("inventariosFicha");
+db.createCollection("movimientosFicha");
+db.createCollection("inscripcionesTorneo");
+db.createCollection("torneos");
+db.createCollection("maquinas");
+db.createCollection("mesas");

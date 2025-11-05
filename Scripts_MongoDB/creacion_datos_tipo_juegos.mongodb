@@ -1,0 +1,14 @@
+use("Casino_Base_de_Datos");
+
+db.tiposJuego.insertMany([
+  { nombre: "Ruleta" },
+  { nombre: "Póker" },
+  { nombre: "Blackjack" },
+  { nombre: "Tragamonedas" },
+  { nombre: "Bacará" },
+  { nombre: "Dados" },
+  { nombre: "Lotería" },
+  { nombre: "Bingo" },
+  { nombre: "Carrera de Caballos Virtual" },
+  { nombre: "Apuestas Deportivas" }
+]);
